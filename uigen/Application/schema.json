@@ -1,0 +1,20 @@
+{
+    "actions": [{
+        "name": "Application",
+        "class": "Applications"
+    },
+    {
+        "name": "ApplicationSelect",
+        "class": "ApplicationSelect",
+        "dependency": "ApplicationCreate"
+    },
+    {
+        "name": "ApplicationCreate",
+        "class": "ApplicationCreate"
+    },
+    {
+        "name": "CreateClaim",
+        "class": "CreateApplicationClaim",
+        "dependency": "ApplicationSelect"
+    }]
+}
