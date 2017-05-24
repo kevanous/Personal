@@ -1,0 +1,7 @@
+spec\SmokeTestDataImport\Post-installation_verification_test_data\Processing
+spec\SmokeTestDataImport\Post-installation_verification_test_data\VOL00001
+*.html
+*.byebug_history
+*.txt
+*.log
+chef\*

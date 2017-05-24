@@ -1,0 +1,13 @@
+<RelativityURLs>
+	<Cluster_name>Rel94-InternalTest</Cluster_name>
+	<!--
+	<SsoUrl>https://mtpctscid051.consilio.com/Relativity</ssoURL>
+	<FormsUrl>https://mtpctscid054.consilio.com/Relativity</FormsUrl>
+	<AnalyticsServiceUrl>http://MTPCTSCID057.consilio.com:8080/nexus/services/</AnalyticsServiceUrl> 	<!--  make sure to retain the info after `.com` -->
+		<!--
+	<WmsServiceUrl>net.tcp://MTPCTSCID055.consilio.com:6859/InvariantAPI/</WmsServiceUrl>             <!--  make sure to retain the info after `.com` -->
+		<!--
+	<AgentServerName>MTPCTSCID052</AgentServerName>
+	<WorkerServerName>MTPCTSCID053</WorkerServerName>
+-->
+</RelativityURLs>

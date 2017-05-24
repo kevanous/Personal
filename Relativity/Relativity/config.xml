@@ -1,0 +1,5 @@
+<SmokeTestConfigs>
+	<Cluster_name>Sri_env</Cluster_name>
+	<UserName>kshrestha</UserName>
+	<chefPemLocation>C:/Chef/kshrestha.pem</chefPemLocation>
+</SmokeTestConfigs>
