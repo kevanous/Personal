@@ -1,0 +1,32 @@
+
+Data Clients:
+search for a data client
+create new data client
+edit data client details
+add a single or multiple custodians to a data client
+edit the custodian details
+edit(add) a single repository to a data client
+edit(add) a single or multiple project/s to a data client
+
+
+Projects:
+search for a project
+edit(add) a single or multiple data client/s to a selected project
+edit data client details
+add a single or multiple custodians to a data client
+edit the custodian details
+edit(add) a single repository to a data client
+
+Custodian Attributes:
+add a custom attribute 
+
+
+Issues:
+* Up to 50 projects  projects are being displayed in the projects table, need to use Search box to find more projects
+* Same Data Client info lingers on the right pane even after switching to Projects tab from Data Clients tab
+* Searching with search string '108' also gives results like H10309 and H10620 projects
+* Searching with search string 'H118' also gives results like H11281 project
+
+
+
+

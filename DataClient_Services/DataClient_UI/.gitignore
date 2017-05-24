@@ -1,0 +1,5 @@
+#log files
+*.log
+dir_to_ignore/rspec_html_reports
+
+

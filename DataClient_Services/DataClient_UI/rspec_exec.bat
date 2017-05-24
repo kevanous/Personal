@@ -1,0 +1,1 @@
+call bundle exec rspec -f RspecHtmlFormatter spec --format documentation
