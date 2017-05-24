@@ -1,0 +1,388 @@
+{
+  "enums":
+  {
+    "ConditionOperators": [
+      "And",
+      "Or"
+    ]},
+  "entities": 
+  [
+    { 
+      "name": "App", 
+      "schema": 
+        [
+          { 
+            "propertyName": "Id", 
+            "propertyType": "number", 
+            "primaryKey": true 
+          }, 
+          { 
+            "propertyName": "Name", 
+            "propertyType": "string", 
+            "minlength": 3, 
+            "maxlength": 30 
+          }
+        ], 
+      "get": "Apps", 
+      "post": "Apps", 
+      "patch": "Apps($Id)", 
+      "put": "Apps($Id)", 
+      "delete": "Apps($Id)" 
+    },
+    {
+      "name": "ManagementAccount",
+      "schema": 
+        [
+          {
+            "propertyName": "Id",
+            "propertyType": "number",
+            "primaryKey": true
+          },
+          {
+            "propertyName": "AppId",
+            "propertyType": "number",
+            "foreignKey": "App"
+          },
+          {
+            "propertyName": "Account",
+            "propertyType": "string",
+            "minlength": 3, 
+            "maxlength": 30 
+          }
+        ],
+      "get": "ManagementAccounts", 
+      "post": "ManagementAccounts", 
+      "patch": "ManagementAccounts($Id)",
+      "put":  "ManagementAccounts($Id)",
+      "delete": "ManagementAccounts($Id)"
+    },
+    { 
+      "name": "ResourceType", 
+      "schema": 
+        [
+          {
+            "propertyName": "Id",
+            "propertyType": "number",
+            "primaryKey": true
+          },
+          {
+            "propertyName": "AppId",
+            "propertyType": "number",
+            "foreignKey": "App"
+          },
+          { 
+            "propertyName": "Type", 
+            "propertyType": "string", 
+            "minlength": 3, 
+            "maxlength": 30 
+          }
+        ], 
+      "get": "ResourceTypes", 
+      "post": "ResourceTypes", 
+      "patch": "ResourceTypes($Id)",
+      "put":  "ResourceTypes($Id)",
+      "delete": "ResourceTypes($Id)"
+    },
+    {
+      "name": "Policy",
+      "schema": 
+        [
+          {
+            "propertyName": "Id",
+            "propertyType": "number",
+            "primaryKey": true
+          },
+          {
+            "propertyName": "AppId",
+            "propertyType": "number",
+            "foreignKey": "App"
+          },
+           {
+            "propertyName": "ResourceTypeId",
+            "propertyType": "number",
+            "foreignKey": "ResourceType",
+            "dependentProperty": "AppId"
+          },
+          {
+            "propertyName": "Name",
+            "propertyType": "string",
+            "minlength": 3, 
+            "maxlength": 30 
+          },
+          {
+            "propertyName": "ConditionOperator",
+            "propertyType": "ConditionOperators"
+          }
+        ],
+      "get": "Policies", 
+      "post": "Policies", 
+      "patch": "Policies($Id)",
+      "put":  "Policies($Id)",
+      "delete": "Policies($Id)"
+    }, 
+    { 
+      "name": "PropertyClaim", 
+      "schema": 
+        [
+          { "propertyName": "Id", 
+            "propertyType": "number", 
+            "primaryKey": true 
+          }, 
+          { "propertyName": "AppId", 
+            "propertyType": "number", 
+            "foreignKey": "App" 
+          }, 
+          { "propertyName": "Name", 
+            "propertyType": "string", 
+            "minlength": 3, 
+            "maxlength": 30 
+          }, 
+          { "propertyName": "Type", 
+            "propertyType": "string", 
+            "minlength": 3, 
+            "maxlength": 30 
+          }, 
+          { "propertyName": "ValueType", 
+            "propertyType": "string", 
+            "minlength": 3, 
+            "maxlength": 30 
+          }
+        ], 
+      "get": "Apps($AppId)/Claims", 
+      "post": "PropertyClaims", 
+      "patch": "PropertyClaims($Id)", 
+      "put": "PropertyClaims($Id)", 
+      "delete": "PropertyClaims($Id)" 
+    },
+    { 
+      "name": "Activity", 
+      "schema": 
+        [
+          {
+            "propertyName": "Id",
+            "propertyType": "number",
+            "primaryKey": true
+          },
+          {
+            "propertyName": "AppId",
+            "propertyType": "number",
+            "foreignKey": "App"
+          },
+          {
+            "propertyName": "PolicyId",
+            "propertyType": "number",
+            "foreignKey": "Policy",
+            "dependentProperty": "ResourceTypeId"
+          },
+          { 
+            "propertyName": "Name", 
+            "propertyType": "string", 
+            "minlength": 3, 
+            "maxlength": 30 
+          },
+          { 
+            "propertyName": "Resource", 
+            "propertyType": "string", 
+            "minlength": 3, 
+            "maxlength": 30 
+          },
+          { 
+            "propertyName": "Operation", 
+            "propertyType": "string", 
+            "minlength": 3, 
+            "maxlength": 30 
+          }
+        ], 
+      "get": "Activities", 
+      "post": "Activities", 
+      "patch": "Activities($Id)",
+      "put":  "Activities($Id)",
+      "delete": "Activities($Id)"
+    },
+    { 
+      "name": "AppClaim", 
+      "schema": 
+        [
+          {
+            "propertyName": "Id",
+            "propertyType": "number",
+            "primaryKey": true
+          },
+          {
+            "propertyName": "AppId",
+            "propertyType": "number",
+            "foreignKey": "App"
+          },
+          { "propertyName": "Name", 
+            "propertyType": "string", 
+            "minlength": 3, 
+            "maxlength": 30 
+          }, 
+          { "propertyName": "Type", 
+            "propertyType": "string", 
+            "minlength": 3, 
+            "maxlength": 30 
+          }, 
+          { "propertyName": "ValueType", 
+            "propertyType": "string", 
+            "minlength": 3, 
+            "maxlength": 30 
+          },
+          { 
+            "propertyName": "Value", 
+            "propertyType": "string", 
+            "minlength": 3, 
+            "maxlength": 30 
+          }
+        ], 
+      "get": "AppClaims", 
+      "post": "AppClaims", 
+      "patch": "AppClaims($Id)",
+      "put":  "AppClaims($Id)",
+      "delete": "AppClaims($Id)"
+    }
+    ,
+    { 
+      "name": "ResourceTypeClaim", 
+      "schema": 
+        [
+          {
+            "propertyName": "Id",
+            "propertyType": "number",
+            "primaryKey": true
+          },
+          {
+            "propertyName": "AppId",
+            "propertyType": "number",
+            "foreignKey": "App"
+          },
+          {
+            "propertyName": "ResourceTypeId",
+            "propertyType": "number",
+            "foreignKey": "ResourceType",
+            "dependentProperty": "AppId"
+          },
+           { "propertyName": "Name", 
+            "propertyType": "string", 
+            "minlength": 3, 
+            "maxlength": 30 
+          }, 
+          { "propertyName": "Type", 
+            "propertyType": "string", 
+            "minlength": 3, 
+            "maxlength": 30 
+          }, 
+          { "propertyName": "ValueType", 
+            "propertyType": "string", 
+            "minlength": 3, 
+            "maxlength": 30 
+          },
+          { 
+            "propertyName": "Value", 
+            "propertyType": "string", 
+            "minlength": 3, 
+            "maxlength": 30 
+          }
+        ], 
+      "get": "ResourceTypeClaims", 
+      "post": "ResourceTypeClaims", 
+      "patch": "ResourceTypeClaims($Id)",
+      "put":  "ResourceTypeClaims($Id)",
+      "delete": "ResourceTypeClaims($Id)"
+    },
+    { 
+      "name": "ResourceInstanceClaim", 
+      "schema": 
+        [
+          {
+            "propertyName": "Id",
+            "propertyType": "number",
+            "primaryKey": true
+          },
+          {
+            "propertyName": "AppId",
+            "propertyType": "number",
+            "foreignKey": "App"
+          },
+          { "propertyName": "Name", 
+            "propertyType": "string", 
+            "minlength": 3, 
+            "maxlength": 30 
+          }, 
+          { "propertyName": "Type", 
+            "propertyType": "string", 
+            "minlength": 3, 
+            "maxlength": 30 
+          }, 
+          { "propertyName": "ValueType", 
+            "propertyType": "string", 
+            "minlength": 3, 
+            "maxlength": 30 
+          },
+          { 
+            "propertyName": "Value", 
+            "propertyType": "string", 
+            "minlength": 3, 
+            "maxlength": 30 
+          }
+        ], 
+      "get": "ResourceInstanceClaims", 
+      "post": "ResourceInstanceClaims", 
+      "patch": "ResourceInstanceClaims($Id)",
+      "put":  "ResourceInstanceClaims($Id)",
+      "delete": "ResourceInstanceClaims($Id)"
+    },
+    { 
+      "name": "ResourceTypeInstance", 
+      "schema": 
+        [
+          {
+            "propertyName": "Id",
+            "propertyType": "number",
+            "primaryKey": true
+          },
+          {
+            "propertyName": "ResourceTypeId",
+            "propertyType": "number",
+            "foreignKey": "ResourceType"
+          },
+          { "propertyName": "ResourceInstanceClaimId", 
+            "propertyType": "number", 
+            "foreignKey": "ResourceInstanceClaim"
+          }, 
+          { "propertyName": "ResourceInstanceId", 
+            "propertyType": "string", 
+            "minlength": 3, 
+            "maxlength": 30 
+          }
+        ], 
+      "get": "ResourceTypeInstances", 
+      "post": "ResourceTypeInstances", 
+      "patch": "ResourceTypeInstances($Id)",
+      "put":  "ResourceTypeInstances($Id)",
+      "delete": "ResourceTypeInstances($Id)"
+    },
+    { 
+      "name": "AppUserAppClaim", 
+      "schema": 
+        [
+          {
+            "propertyName": "Id",
+            "propertyType": "number",
+            "primaryKey": true
+          },
+          {
+            "propertyName": "AppClaimId",
+            "propertyType": "number",
+            "foreignKey": "AppClaim",
+            "dependentProperty": "AppId"
+          }
+        ], 
+      "get": "AppUserAppClaims", 
+      "post": "AppUserAppClaims", 
+      "patch": "AppUserAppClaims($Id)",
+      "put":  "AppUserAppClaims($Id)",
+      "delete": "AppUserAppClaims($Id)"
+    }
+  ] 
+}

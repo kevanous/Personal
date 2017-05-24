@@ -1,0 +1,83 @@
+*Apps: GET, POST, PATCH, PUT. Not Delete(not implemented status code should be the result)
+Notes: When Apps is created, then automatically, ManagementAccount is created under that app.
+
+AppUsers: Cannot query, its in the system(not exposing, no need for it at the moment)
+
+Users: Cannot query, its in the system(not exposing, no need for it at the moment)
+
+*ManagementAccount: GET, POST, PATCH, PUT, DELETE (Accounts that have access to apps and all its children. When creating an App, we automatically add, using windows auth, the user in the ManagementAccount so that the user have access to that apps)
+
+*Activity: GET, POST, PATCH, PUT, DELETE (dependency or requirement is we need an appID and PolicyId)
+
+*ResourceType:  GET, POST, PATCH, PUT, DELETE (dependency or requirement is we need an appID)
+
+*ResourceTypeInstance: GET, POST, PATCH, PUT, DELETE (dependent on ResourceInstanceClaimId and ResourceTypeId)
+
+ClaimTransform:  GET, POST, PATCH, PUT, DELETE (dependent on AppID and OutgoingClaimId)
+
+Claim: cannot query directly
+
+*PropertyClaim: GET, POST, PATCH, PUT, DELETE (dependent on AppID)
+
+*AppClaim: GET, POST, PATCH, PUT, DELETE (dependent on AppID)
+
+*ResourceTypeClaim: GET, POST, PATCH, PUT, DELETE (dependent on AppID and ResourceTypeId)
+
+*ResourceInstanceClaim: GET, POST, PATCH, PUT, DELETE (dependent on AppID)
+
+*Policy: GET, POST, PATCH, PUT, DELETE (dependent on AppID and ResourceTypeId(its optional))
+
+PolicyClaim: GET, POST, PATCH, PUT, DELETE (dependent on PolicyId and ClaimId)
+
+PolicyRelation: GET, POST, PATCH, PUT, DELETE (dependent on ParentPolicyId and ChildPolicyId)
+
+AppUserClaim: cannot query directly
+
+AppUserPropertyClaim: GET, POST, PATCH, PUT, DELETE (dependent on UserId and PropertyClaimId)
+
+AppUserAppClaim:GET, POST, PATCH, PUT, DELETE (dependent on UserId AppClaimId)
+
+AppUserResourceTypeClaim: GET, POST, PATCH, PUT, DELETE (dependent on UserId and ResourceTypeClaimId)
+
+AppUserResourceInstanceClaim: GET, POST, PATCH, PUT, DELETE (dependent on UserId and ResourceInstanceClaimId)
+
+
+Have a test for property values and check the error message if missing properties
+Have a test for duplicate entitiy values and check for error messages, if any
+
+PolicyRelation:
+dependent on policy entity
+need to have same app but two policies
+
+
+PolicyClaim:
+AppId has to be the same for both policy and [somethingClaim]
+dependency on policy and [propertyclaims or ResourceInstanceClaim or ResourceTypeClaim or AppClaim]
+
+ClaimTransform:
+dependency on AppId and [propertyclaims or ResourceInstanceClaim or ResourceTypeClaim or AppClaim]
+
+need properites:
+AppId, OutgoingClaimId, Required, IncomingIssuer
+
+
+When an App is created, it creates records in ManagementAccount, Claims, PropertyClaims and ClaimTransforms
+
+
+Use Case 1:
+1.  Create a new app by user X
+2.  Try to do a GET on that app by user Y: should in nothing in the result body
+3.  Do a post in ManagementAccount entity with the AD name of the user Y for Account and the above app's AppId.
+4.  Try to do a GET on that app by user Y: should result with the 
+
+Use Case 2:
+1. Create(POST) a new app with name 'ABC' by user X
+2. Create(POST) a app with name 'ABC' by user X: should result in an error
+3. Create(POST) a app with name 'ABC' by user X: should result in an error
+
+User Case 3: 
+
+
+
+
+
