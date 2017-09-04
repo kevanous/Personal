@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20170901 08:20:48.743" generator="Robot 3.0.2 (Python 2.7.10 on darwin)">
+<suite source="/Users/kumar.shrestha/SourceControl/Github/contextmedia/qa_automation/CDP_CORE/tests/set_account_open_caption.robot" id="s1" name="Set Account Open Caption">
+<test id="s1-t1" name="Account update using api for open caption set as True">
+<kw name="Set_Account OC ON and_return Status Code">
+<assign>
+<var>${set_account_OC_ON} =</var>
+</assign>
+<msg timestamp="20170901 08:20:48.782" level="FAIL">No keyword with name 'Set_Account OC ON and_return Status Code' found.</msg>
+<status status="FAIL" endtime="20170901 08:20:48.782" starttime="20170901 08:20:48.782"></status>
+</kw>
+<doc>Account update from Salesforce to CDP: This rest call sets the account setting of a particular clinic as open caption setting True</doc>
+<status status="FAIL" endtime="20170901 08:20:48.782" critical="yes" starttime="20170901 08:20:48.780">No keyword with name 'Set_Account OC ON and_return Status Code' found.</status>
+</test>
+<test id="s1-t2" name="Account update using api for open caption set as False">
+<kw name="Set Account OC off and return Status Code">
+<assign>
+<var>${set_account_OC_OFF} =</var>
+</assign>
+<msg timestamp="20170901 08:20:48.785" level="FAIL">No keyword with name 'Set Account OC off and return Status Code' found.</msg>
+<status status="FAIL" endtime="20170901 08:20:48.785" starttime="20170901 08:20:48.785"></status>
+</kw>
+<doc>Account update from Salesforce to CDP: This rest call sets the account setting of a particular clinic as open caption setting False</doc>
+<tags>
+<tag>AccountSync</tag>
+<tag>CDP</tag>
+<tag>Regression</tag>
+</tags>
+<status status="FAIL" endtime="20170901 08:20:48.785" critical="yes" starttime="20170901 08:20:48.783">No keyword with name 'Set Account OC off and return Status Code' found.</status>
+</test>
+<status status="FAIL" endtime="20170901 08:20:48.786" starttime="20170901 08:20:48.745"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="2" pass="0">Critical Tests</stat>
+<stat fail="2" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">AccountSync</stat>
+<stat fail="1" pass="0">CDP</stat>
+<stat fail="1" pass="0">Regression</stat>
+</tag>
+<suite>
+<stat fail="2" id="s1" name="Set Account Open Caption" pass="0">Set Account Open Caption</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20170901 08:20:48.777" level="ERROR">Error in file '/Users/kumar.shrestha/SourceControl/Github/contextmedia/qa_automation/CDP_CORE/tests/set_account_open_caption.robot': Importing test library '/Users/kumar.shrestha/SourceControl/Github/contextmedia/qa_automation/CDP_CORE/modules/APICalls.py' failed: ImportError: No module named mdm.api
+Traceback (most recent call last):
+  File "/Users/kumar.shrestha/SourceControl/Github/contextmedia/qa_automation/CDP_CORE/modules/APICalls.py", line 2, in &lt;module&gt;
+    from Payloads import Payloads
+  File "/Users/kumar.shrestha/SourceControl/Github/contextmedia/qa_automation/CDP_CORE/modules/Payloads.py", line 1, in &lt;module&gt;
+    from mdm.api import clinic_sync_payload_generator
+PYTHONPATH:
+  /usr/local/bin
+  /Library/Python/2.7/site-packages/pip-9.0.1-py2.7.egg
+  /Users/kumar.shrestha/SourceControl/Github/contextmedia/qa_automation/CDP_CORE/tests/~/eclipse-workspace/Robot_First/qa_automation
+  /Users/kumar.shrestha/SourceControl/Github/contextmedia/qa_automation/CDP_CORE/tests
+  /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python27.zip
+  /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7
+  /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-darwin
+  /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac
+  /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac/lib-scriptpackages
+  /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-tk
+  /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-old
+  /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-dynload
+  /Library/Python/2.7/site-packages
+  /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python
+  /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/PyObjC</msg>
+<msg timestamp="20170901 08:20:48.779" level="ERROR">Error in file '/Users/kumar.shrestha/SourceControl/Github/contextmedia/qa_automation/CDP_CORE/tests/set_account_open_caption.robot': Importing test library '/Users/kumar.shrestha/SourceControl/Github/contextmedia/qa_automation/CDP_CORE/modules/AccountPayloadGenerator.py' failed: ImportError: No module named modules.api_base
+Traceback (most recent call last):
+  File "/Users/kumar.shrestha/SourceControl/Github/contextmedia/qa_automation/CDP_CORE/modules/AccountPayloadGenerator.py", line 1, in &lt;module&gt;
+    from modules.api_base import ApiBase
+PYTHONPATH:
+  /usr/local/bin
+  /Library/Python/2.7/site-packages/pip-9.0.1-py2.7.egg
+  /Users/kumar.shrestha/SourceControl/Github/contextmedia/qa_automation/CDP_CORE/tests/~/eclipse-workspace/Robot_First/qa_automation
+  /Users/kumar.shrestha/SourceControl/Github/contextmedia/qa_automation/CDP_CORE/tests
+  /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python27.zip
+  /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7
+  /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-darwin
+  /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac
+  /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac/lib-scriptpackages
+  /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-tk
+  /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-old
+  /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-dynload
+  /Library/Python/2.7/site-packages
+  /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python
+  /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/PyObjC</msg>
+</errors>
+</robot>
